@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Basic page for Django course">
+    <meta name="author" content="Ivan Tarasenko">
+    <title>PyBursa Main</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+	<!-- Navigation -->
+	<nav class="nav_bar navigation">
+	    <div class=container>
+		<div class=row>
+		    <div class="col-md-12">
+		    <ul class="menu fading l_tinynav1">
+		    <li><a href="index.html">Main</a></li>
+		    <li><a href="contact.html">Contacts</a></li>
+		    <li><a class="selected" href="student_list.html">Students</a></li>
+		    </ul>
+		    </div>
+		</div>
+	    </div>
+	</nav>
+        <div class=container>
+	     <h1>PyBursa Enrolled Students</h1>
+	     <span>Below you can see a list of PyBursa students graduated in April 2015</span>
+	     <table class=stud_table>
+		<thead>
+		    <tr>
+	    		<th>No</th><th>Surname</th><th>Name</th><th>Address</th><th>Skype</th>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr onclick="document.location = 'student_detail.html';" >
+			<td>1</td><td>Yoda</td><td>The Master</td><td>Ukraine, Kharkiv, Ivanova str, 36 ap.3</td><td>yoda.master.the</td>
+		    </tr>
+		    <tr>
+			<td>2</td><td>Vindu</td><td>Mace</td><td>Ukraine, Kharkiv, Ivanova str, 36 ap.3</td><td>mace.vindu</td>
+		    </tr>
+		    <tr>
+			<td>3</td><td>General</td><td>Grievous</td><td>Ukraine, Kharkiv, Ivanova str, 36 ap.3</td><td>grevi</td>
+		    </tr>
+		    <tr>
+			<td>4</td><td>Hutt</td><td>Jabba</td><td>Ukraine, Kharkiv, Ivanova str, 36 ap.3</td><td>jabba.the.hutt</td>
+		    </tr>
+		    <tr>
+			<td>5</td><td>Corr</td><td>Jaden</td><td>Ukraine, Kharkiv, Ivanova str, 36 ap.3</td><td>jaden_the_best</td>
+		    </tr>
+		</tbody>
+	     </table>
+
+	</div>
+        <div class="footer atbottom">
+	    <h4>© 2015 Ivan Inc. Все права защищены.</h4>
+	</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+  </body>
+</html>
