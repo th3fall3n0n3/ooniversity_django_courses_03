@@ -8,10 +8,10 @@
     <meta name="description" content="Basic page for Django course">
     <meta name="author" content="Ivan Tarasenko">
     <title>PyBursa Main</title>
-
+    {% load staticfiles %}
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -21,9 +21,9 @@
 		<div class=row>
 		    <div class="col-md-12">
 		    <ul class="menu fading l_tinynav1">
-		    <li><a class="selected" href="index.html">Main</a></li>
-		    <li><a href="contact.html">Contacts</a></li>
-		    <li><a href="student_list.html">Students</a></li>
+		    <li><a class="selected" href="{% url 'index' %}">Main</a></li>
+		    <li><a href="{% url 'contact' %}">Contacts</a></li>
+		    <li><a href="{% url 'student_list' %}">Students</a></li>
 		    </ul>
 		    </div>
 		</div>
@@ -49,6 +49,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
