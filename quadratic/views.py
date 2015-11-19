@@ -37,5 +37,4 @@ def results(request):
 		x1 = (-b + d ** (1/2.0)) / (2 * a)
 		x2 = (-b - d ** (1/2.0)) / (2 * a)
 		result_dict['result']=[x1,x2]
-    print result_dict
     return render(request, "results.html", result_dict)
