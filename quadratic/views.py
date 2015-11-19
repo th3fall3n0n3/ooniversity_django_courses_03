@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def results(request):
+def quadratic_results(request):
     result_dict={}
     result_dict['error']={}
     #Checking request parameters, a
