@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Basic page for Django course">
+    <meta name="author" content="Ivan Tarasenko">
+    <title>PyBursa Quadratic</title>
+  </head>
+  <body>
+    <p>Квадратное уравнение a*x*c + b*x + c = 0</p>
+    <ul>
+	<li>a = {{a}}</li>
+	{% if error.a == 1 %}коэфициент при первом слагаемом уравнения не может быть равным нулю
+	{% elif error.a == 2 %}коэфициент не определен
+	{% elif error.a == 3 %}коэфициент не целое цисло{% endif %}
+	<li>b = {{b}}</li>
+	{% if error.b == 2 %}коэфициент не определен
+	{% elif error.b == 3 %}коэфициент не целое цисло{% endif %}
+	<li>c = {{c}}</li>
+	{% if error.c == 2 %}коэфициент не определен
+	{% elif error.c == 3 %}коэфициент не целое цисло{% endif %}
+    </ul>
+    {% if not error %}
+    {% if d or d == 0 %}<p>Дискриминант: {{d}} </p>{% endif %}
+    {% if result|length = 2 %}<p>Квадратное уравнение имеет два действительных корня: x1 = {{result.0}}, x2 = {{result.1}}</p>
+    {% else %}{%if result.0 == "<0" %}<p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений</p>
+	      {% else %}<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ result.0 }}</p>{% endif %}
+    {% endif %}
+    {% endif %}
+  </body>
+</html>
