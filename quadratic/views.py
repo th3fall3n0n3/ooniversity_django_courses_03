@@ -32,9 +32,10 @@ def quadratic_results(request):
 		result_dict['result']=["<0"] 
     	elif d == 0:
 		x = -b / 2 * a
-		result_dict['result']=[x]
+		result_dict['result']=[float(x)]
     	else: 
 		x1 = (-b + d ** (1/2.0)) / (2 * a)
 		x2 = (-b - d ** (1/2.0)) / (2 * a)
-		result_dict['result']=[x1,x2]
+		result_dict['result']=[float(x1),float(x2)]
+    print result_dict
     return render(request, "results.html", result_dict)
