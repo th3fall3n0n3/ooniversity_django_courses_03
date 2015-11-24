@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Basic page for Django course">
     <meta name="author" content="Ivan Tarasenko">
-    <title>PyBursa Main</title>
+    <title>PyBursa Students List</title>
     {% load staticfiles %}
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -21,40 +21,36 @@
 		<div class=row>
 		    <div class="col-md-12">
 		    <ul class="menu fading l_tinynav1">
-		    <li><a class="selected" href="{% url 'index' %}">Main</a></li>
+		    <li><a href="{% url 'index' %}">Main</a></li>
 		    <li><a href="{% url 'contact' %}">Contacts</a></li>
-		    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+		    <li><a class="selected" href="{% url 'students:list_view' %}">Students</a></li>
 		    </ul>
 		    </div>
 		</div>
 	    </div>
 	</nav>
-	
-	    <div class=main-header>
-		<img src = {% static 'images/index.jpg'%}/>
-		<h1 class="org_name">Jedi Academy</h1>
-		<a href=#>Enroll for the course</a>
-		<h1 class="org_name force">Let the <b>Force</b> be with you</h1>
-	    </div>	
-	    <div class=container>
-	     <h1 class="glow_cyan_t">Jedi Academy Courses, choose the side</h1>
+        <div class=container>
+	     <h1 class="glow_red_t">Enrolled Students to PyBursa</h1>
+	     <span class="glow_red_t t_red">Below you can see a list of PyBursa students graduated in April 2015</span>
 	     <table class="stud_table glow_cyan">
 		<thead>
 		    <tr>
-		    <th>Course</th><th>Description</th>
+	    		<th>#</th><th>Fullname</th><th>Address</th><th>Skype</th><th>Courses</th>
 		    </tr>
 		</thead>
 		<tbody>
-		{% for course in courses%}
-		<tr>
-		<td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td><td>{{course.short_description}}</td>
-		<tr>
-		{%endfor%}
+		    {% for student in students %}
+		    <tr>
+			<td>{{student.id}}</td><td><a href="{% url 'students:detail' student.id %}">{{student.name}} {{student.surname}}<a></td><td>{{student.address}}</td><td>{{student.skype}}</td><td>{% for course in student.courses.all %}<a href="#">{{course.name}}</a><br>{%endfor%}</td>
+		    </tr>
+		    {% endfor %}
 		</tbody>
 	     </table>
-     <div class=footer>
-    <h4 class=glow_cyan_t>© 2315 Jedi Academy Inc. All rights reserved by The Force.</h4>
-    </div>
+	</div>
+	
+        <div class="footer atbottom">
+	    <h4>© 2015 Ivan Inc. Все права защищены.</h4>
+	</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

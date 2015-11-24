@@ -23,7 +23,7 @@
 		    <ul class="menu fading l_tinynav1">
 		    <li><a href="{% url 'index' %}">Main</a></li>
 		    <li><a class="selected" href="{% url 'contact'%}">Contacts</a></li>
-		    <li><a href="{% url 'student_list'%}">Students</a></li>
+		    <li><a href="{% url 'students:list_view'%}">Students</a></li>
 		    </ul>
 		    </div>
 		</div>
@@ -33,9 +33,9 @@
 	<div class=container>
 	    <div class=contact>
 		<div class=c_photo> 
-		    <img class="img-circle" src="{% static 'images/director.png' %}"/>
+		    <img class="img-circle glow_cyan" src="{% static 'images/director.png' %}"/>
 		</div>
-		<div class=c_contacts>
+		<div class="c_contacts glow_red_t">
 		    <h2>Director:</h2>
 		    <h3>Name:</h3>
 		    <div class=skype><h3>Skype: aaarghd!</h3></div>
@@ -45,9 +45,9 @@
 	    </div>	
 	    <div class=contact>
 		<div class=c_photo> 
-		    <img class="img-circle" src="{% static 'images/manager.png' %}"/>
+		    <img class="img-circle glow_cyan" src="{% static 'images/manager.png' %}"/>
 		</div>
-		<div class=c_contacts>
+		<div class="c_contacts glow_red_t">
 		    <h2>Manager:</h2>
 		    <h3>Name: Imperial Trooper</h3>
 		    <div class=skype><h3>Skype: save_our_souls</h3></div>
@@ -56,10 +56,10 @@
 		</div>
     	    </div>	
 	    <div class=contact>
-		<div class=c_photo> 
-		    <img class="img-circle" src="{% static 'images/r2d2.jpg' %}"/>
+		<div class="c_photo"> 
+		    <img class="img-circle glow_cyan" src="{% static 'images/r2d2.jpg' %}"/>
 		</div>
-		<div class=c_contacts>
+		<div class="c_contacts glow_red_t">
 		    <h2>Founder</h2>
 		    <h3>Name: R2D2</h3>
 		    <div class=skype><h3>Skype: r2d2_ma3a_tr3ad</h3></div>
@@ -69,7 +69,7 @@
     	    </div>	
 	</div>
     <div class=footer>
-    <h4> © 2015 Ivan Inc. Все права защищены. </h4>
+    <h4 class="glow_red_t"> © 2015 Ivan Inc. Все права защищены. </h4>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

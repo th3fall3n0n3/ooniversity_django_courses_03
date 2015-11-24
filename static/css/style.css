@@ -72,15 +72,16 @@
 .contact .phone { background-image: url(../images/phone.png); background-size: 27px 27px; background-repeat:no-repeat}
 .contact h2 {color:red; text-align:center }
 .contact h3 {padding-left:35px}
-.c_photo img { height: 300px; width: 200px }
+.c_photo img { height: 300px; width: 300px }
 .c_photo { text-align: center;float:left; width:40%}
 .c_contacts {float:left; width:60%}
-.footer { width:100%; text-align: center}
-.atbottom { position:absolute; bottom:0 }
+.footer { width:100%; text-align: center !important}
+.atbottom { position:absolute; bottom:0; width:100%; }
 .nd { display:none }
-.main-header { width: 100%; text-align: center; padding-top: 230px; background-image: url(../images/header.jpg); background-size: 1920px 350px; background-position: center; height: 350px}
-.main-header a { background-color: rgba(0, 0, 0, 0.5);color:#eeeeee; font-weight:bold; padding: 20px 40px; width: 300px; height: 50px; border: 3px solid; border-color: white; text-decoration:none;}
-.main-header a:hover { background-color: rgba(0, 0, 0, 0.2); font-weight: bold; color:white}
+.main-header { width: 100%; text-align: center;   height: 650px}
+.main-header a { position: relative; top: -400px; background-color: rgba(0, 0, 0, 0.5);color:#eeeeee; font-weight:bold; padding: 20px 40px; width: 300px; height: 50px; border: 3px solid; border-color: white; text-decoration:none;}
+.main-header a:hover { background-color: rgba(0, 0, 0, 0.2); font-weight: bold; color:white; text-shadow: 0 0 80px red, 0 0 70px red, 0 0 60px red, 0 0 50px red, 0 0 40px red, 0 0 30px red;}
+.main-header h1 { top: -350px }
 .stud_table { margin: 20px; width:100% !important}
 .stud_table tr:hover { background-color: #DDD;}
 .no_hover tr:hover { background-color: #CCC !important}
@@ -90,3 +91,25 @@
 .score_table {height: 460px ;display: flex; justify-content: center; align-items: center;}
 .student_performance {margin-left: 25px; float: left; margin-top: 10px;width:100%}
 .student_performance h2 { margin-left: 20px; }
+.org_name { 
+    position: relative;
+    top: -420px !important;
+    text-shadow: 0 0 80px red, 0 0 70px red, 0 0 60px red, 0 0 50px red, 0 0 40px red, 0 0 30px red;
+    color: #F9B0B0 }
+.force { top: -390px !important;}
+.glow_red {box-shadow: 0 0 40px red, 0 0 35px red, 0 0 30px red, 0 0 25px red, 0 0 20px red, 0 0 15px red;}
+.glow_cyan {box-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan;}
+.glow_red_t {text-shadow: 0 0 40px red, 0 0 35px red, 0 0 30px red, 0 0 25px red, 0 0 20px red, 0 0 15px red;}
+.glow_cyan_t {text-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan;}
+body, html{
+   width: 100%;
+   height: 100%;
+   background: url('../images/background.jpg') no-repeat center center fixed;
+   margin: 0;
+   padding: 0;
+   -webkit-background-size: cover;
+      -moz-background-size: cover;
+        -o-background-size: cover;
+           background-size: cover;
+}
+.t_red { color:red }

@@ -23,7 +23,7 @@
 		    <ul class="menu fading l_tinynav1">
 		    <li><a class="selected" href="{% url 'index' %}">Main</a></li>
 		    <li><a href="{% url 'contact' %}">Contacts</a></li>
-		    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+		    <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a></li>
 		    </ul>
 		    </div>
 		</div>
@@ -32,22 +32,21 @@
 	
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
-		<h1 class="org_name">Jedi Academy</h1>
-		<a href=#>Enroll for the course</a>
-		<h1 class="org_name force">Let the <b>Force</b> be with you</h1>
+		<h1 class="org_name">{{course}}</h1>
+		<p class="org_name">{{course.description|linebreaksbr }}<p2>
 	    </div>	
 	    <div class=container>
-	     <h1 class="glow_cyan_t">Jedi Academy Courses, choose the side</h1>
+	     <h1 class="glow_cyan_t">{{course}}, lessons:</h1>
 	     <table class="stud_table glow_cyan">
 		<thead>
 		    <tr>
-		    <th>Course</th><th>Description</th>
+		    <th>#</th><th>Topic</th><th>Description</th>
 		    </tr>
 		</thead>
 		<tbody>
-		{% for course in courses%}
+		{% for lesson in lessons%}
 		<tr>
-		<td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td><td>{{course.short_description}}</td>
+		<td>{{lesson.order}}</td><td>{{lesson}}</a></td><td>{{lesson.description}}</td>
 		<tr>
 		{%endfor%}
 		</tbody>
