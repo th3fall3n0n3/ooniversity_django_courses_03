@@ -31,34 +31,34 @@
 	</nav>
         <div class=container>
 	    <div class=c_photo>
-		<h1 class="glow_cyan_t">{{student.name}} {{student.surname}}</h1>
+		<h1 class="glow_cyan_t">{{ student.name }} {{ student.surname }}</h1>
 		<img class="glow_cyan img-circle" src="{% static 'images/unknown.jpg' %}"/>
 	    </div>
 	    <div class="c_contacts score_table">
 		<table class="stud_table glow_cyan">
 		    <tr>
-			<td>Surname</td><td>{{student.surname}}</td>
+			<td>Surname</td><td>{{ student.surname }}</td>
 		    </tr>
 		    <tr>
-			<td>Name</td><td>{{student.name}}</td>
+			<td>Name</td><td>{{ student.name }}</td>
 		    </tr>
 		    <tr>
-			<td>E-mail</td><td>{{student.email}}</td>
+			<td>E-mail</td><td>{{ student.email }}</td>
 		    </tr>
 		    <tr>
-			<td>Phone</td><td>{{student.phone}}</td>
+			<td>Phone</td><td>{{ student.phone }}</td>
 		    </tr>
 		    <tr>
-			<td>Birth Date</td><td>{{student.date_of_birth}}</td>
+			<td>Birth Date</td><td>{{ student.date_of_birth }}</td>
 		    </tr>
 		    <tr>
-			<td>Address</td><td>{{student.address}}</td>
+			<td>Address</td><td>{{ student.address }}</td>
 		    </tr>
 		    <tr>
-		        <td>Skype</td><td>{{student.skype}}</td>
+		        <td>Skype</td><td>{{ student.skype }}</td>
 		    </tr>
 		    <tr>
-			<td>Courses</td><td>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{course}}</a><br>{%endfor%}</td>
+			<td>Courses</td><td>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course }}</a><br>{% endfor %}</td>
 		    </tr>
 		</table>
 	    </div>

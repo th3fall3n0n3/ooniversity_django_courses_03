@@ -41,7 +41,7 @@
 		<tbody>
 		    {% for student in students %}
 		    <tr>
-			<td>{{student.id}}</td><td><a href="{% url 'student_detail' student.id %}">{{student.name}} {{student.surname}}<a></td><td>{{student.address}}</td><td>{{student.skype}}</td><td>{% for course in student.courses.all %}<a href="{% url 'courses' course.id %}">{{course.name}}</a><br>{%endfor%}</td>
+			<td>{{ student.id }}</td><td><a href="{% url 'student_detail' student.id %}">{{ student.name }} {{ student.surname }}<a></td><td>{{ student.address }}</td><td>{{ student.skype }}</td><td>{% for course in student.courses.all %}<a href="{% url 'courses' course.id %}">{{ course.name }}</a><br>{% endfor %}</td>
 		    </tr>
 		    {% endfor %}
 		</tbody>

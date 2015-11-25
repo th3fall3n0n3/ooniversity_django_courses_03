@@ -23,7 +23,7 @@
 		    <ul class="menu fading l_tinynav1">
 		    <li><a class="selected" href="{% url 'index' %}">Main</a></li>
 		    <li><a href="{% url 'contact' %}">Contacts</a></li>
-		    <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a></li>
+		    <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
 		    </ul>
 		    </div>
 		</div>
@@ -32,11 +32,11 @@
 	
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
-		<h1 class="org_name">{{course}}</h1>
-		<p class="org_name">{{course.description|linebreaksbr }}<p2>
+		<h1 class="org_name">{{ course }}</h1>
+		<p class="org_name">{{ course.description|linebreaksbr }}<p2>
 	    </div>	
 	    <div class=container>
-	     <h1 class="glow_cyan_t">{{course}}, lessons:</h1>
+	     <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
 	     <table class="stud_table glow_cyan">
 		<thead>
 		    <tr>
@@ -46,9 +46,9 @@
 		<tbody>
 		{% for lesson in lessons%}
 		<tr>
-		<td>{{lesson.order}}</td><td>{{lesson}}</a></td><td>{{lesson.description}}</td>
+		<td>{{ lesson.order }}</td><td>{{ lesson }}</a></td><td>{{ lesson.description }}</td>
 		<tr>
-		{%endfor%}
+		{% endfor %}
 		</tbody>
 	     </table>
      <div class=footer>

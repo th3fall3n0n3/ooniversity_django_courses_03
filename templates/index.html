@@ -45,11 +45,11 @@
 		    </tr>
 		</thead>
 		<tbody>
-		{% for course in courses%}
+		{% for course in courses %}
 		<tr>
-		<td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td><td>{{course.short_description}}</td>
+		<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td><td>{{ course.short_description }}</td>
 		<tr>
-		{%endfor%}
+		{% endfor %}
 		</tbody>
 	     </table>
      <div class=footer>
