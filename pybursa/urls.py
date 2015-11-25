@@ -14,3 +14,5 @@ urlpatterns = patterns('',
     url(r'students/', include('students.urls', namespace="students")),
     url(r'courses/', include('courses.urls', namespace="courses"))
 )
+
+admin.site.site_header = 'My Site'
