@@ -12,7 +12,7 @@ class StudentAdmin(admin.ModelAdmin):
     filter_horizontal = [ 'courses' ] 
 
     def get_full_name(self, obj):
-	return obj.name+" "+obj.surname
+	return obj.name + " " + obj.surname
     get_full_name.short_description = "Full name"
     get_full_name.admin_order_field = "name"
 # Register your models here.
