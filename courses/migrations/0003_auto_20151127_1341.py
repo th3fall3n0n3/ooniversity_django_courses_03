@@ -15,12 +15,10 @@ class Migration(migrations.Migration):
             model_name='course',
             name='assistant',
             field=models.ForeignKey(related_name='assistant_courses', blank=True, to='coaches.Coach'),
-            preserve_default=True,
         ),
         migrations.AlterField(
             model_name='course',
             name='coach',
             field=models.ForeignKey(related_name='coach_courses', blank=True, to='coaches.Coach'),
-            preserve_default=True,
         ),
     ]
