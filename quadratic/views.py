@@ -23,4 +23,4 @@ def quadratic_results(request):
 		context['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
     else:
 	context['form'] = QuadraticForm()
-    return render(request, "results.html",  context )
+    return render(request, "quadratic/results.html",  context )
