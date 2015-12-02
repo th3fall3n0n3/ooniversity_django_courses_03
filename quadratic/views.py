@@ -12,7 +12,7 @@ def quadratic_results(request):
 	    b = form.cleaned_data['b']
 	    c = form.cleaned_data['c']
 	    # claculating discriminant
-	    d = int(b ** 2 - 4 * a * c)
+	    d = b ** 2 - 4 * a * c
 	    if d < 0:
 		result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 	    elif d == 0:
