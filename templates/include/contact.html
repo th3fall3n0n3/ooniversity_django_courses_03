@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<div class=contact>
+    <div class=c_photo> 
+	<img class="img-circle glow_cyan" src="{% static photo %}"/>
+    </div>
+    <div class="c_contacts glow_cyan_t">
+	<h1>{{ position }}</h2>
+	<h3>Name: {{ name }}</h3>
+	<div class=skype><h3>Skype: {{ skype }}</h3></div>
+	<div class=email><h3>Email: {{ email }}</h3></div>
+	<div class=phone><h3>Phone: {{ phone }}</h3></div>
+    </div>
+</div>	

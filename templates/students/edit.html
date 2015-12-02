@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{{ student.name }} {{ student.surname }} Edit Form{% endblock %}
+{% block selected_students %}selected{% endblock %} 
+{% block content %}
+        <div class="container">
+	<br>
+	{% if messages %}
+	    {% for message in messages %}
+	    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %} alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		{{ message }}
+	    </div>
+	    {% endfor %}
+	{% endif %}
+	<center><h1 class="glow_cyan_t">Edit Jedi data</h1></center>
+	<center>
+		<form method="POST">
+			{% csrf_token %}
+			<table class="stud_table glow_cyan form_table">
+			{{ form.as_table}}
+			</table>
+			<input class="glow_cyan" type="submit" value="Save" />
+		</form>
+	</center>
+    	</div>
+{% endblock content %}
+{% block footer %}"footer atbottom"{% endblock %}

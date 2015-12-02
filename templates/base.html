@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Basic page for Django course">
+    <meta name="author" content="Ivan Tarasenko">
+    <title>{% block title %}{% endblock title %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+	<!-- Navigation -->
+	<nav class="nav_bar navigation">
+	    <div class=container>
+		<div class=row>
+		    <div class="col-md-12">
+		    <ul class="menu fading l_tinynav1">
+		    <li class={% block selected_main %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
+		    <li class={% block selected_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
+		    <li class={% block selected_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block course %}{% endblock%}">Students</a></li>
+		    </ul>
+		    </div>
+		</div>
+	    </div>
+	</nav>
+{% block content %}{% endblock content %}
+    	<div class={% block footer %}{% endblock footer %}>
+            <h4 class=glow_cyan_t>© 2315 Jedi Academy Inc. All rights reserved by The Force.</h4>
+        </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

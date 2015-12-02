@@ -1,35 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Basic page for Django course">
-    <meta name="author" content="Ivan Tarasenko">
-    <title>PyBursa Main</title>
-    {% load staticfiles %}
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-
-  <body>
-	<!-- Navigation -->
-	<nav class="nav_bar navigation">
-	    <div class=container>
-		<div class=row>
-		    <div class="col-md-12">
-		    <ul class="menu fading l_tinynav1">
-		    <li class="selected"><a href="{% url 'index' %}">Main</a></li>
-		    <li><a href="{% url 'contact' %}">Contacts</a></li>
-		    <li><a href="{% url 'students:list_view' %}">Students</a></li>
-		    </ul>
-		    </div>
-		</div>
-	    </div>
-	</nav>
-	
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Pybursa Main{% endblock %}
+{% block selected_main %}selected{% endblock %} 
+{% block content %}
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
 		<h1 class="org_name">Jedi Academy</h1>
@@ -37,28 +10,23 @@
 		<h1 class="org_name force">Let the <b>Force</b> be with you</h1>
 	    </div>	
 	    <div class=container>
-	     <h1 class="glow_cyan_t">Jedi Academy Courses, choose the side</h1>
-	     <table class="stud_table glow_cyan">
-		<thead>
-		    <tr>
-		    <th>Course</th><th>Description</th>
-		    </tr>
-		</thead>
-		<tbody>
-		{% for course in courses %}
-		<tr>
-		<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td><td>{{ course.short_description }}</td>
-		<tr>
-		{% endfor %}
-		</tbody>
-	     </table>
-     <div class=footer>
-    <h4 class=glow_cyan_t>© 2315 Jedi Academy Inc. All rights reserved by The Force.</h4>
-    </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+	    	<h1 class="glow_cyan_t">Jedi Academy Courses, choose the side</h1>
+	    	<table class="stud_table glow_cyan">
+		    <thead>
+		       <tr>
+		       <th>Course</th><th>Description</th>
+		       </tr>
+		    </thead>
+		    <tbody>
+		    {% for course in courses %}
+		       <tr>
+		       <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td><td>{{ course.short_description|title }}</td>
+		       <tr>
+		    {% endfor %}
+		    </tbody>
+	        </table>
+	    </div>
+{% endblock content %}
+{% block footer %}footer{% endblock %}
+
+

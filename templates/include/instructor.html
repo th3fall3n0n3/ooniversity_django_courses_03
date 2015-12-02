@@ -1,0 +1,12 @@
+<table class="stud_table glow_cyan no_hover">
+   <thead>
+	<tr>
+	   <th>{{ block_title }}</th>
+	</tr>
+   </thead>
+   <tbody>
+	<tr>
+	   <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ instructor.user.first_name }} {{ instructor.user.last_name }}</a><br><br>{{ instructor.description }}</td>
+	</tr>
+   </tbody>
+</table>
