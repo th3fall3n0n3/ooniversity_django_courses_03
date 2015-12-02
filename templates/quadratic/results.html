@@ -13,8 +13,8 @@
     <form>
     {{ form.as_p }}
     <input type="submit" value="Решить"/>
-    {% if result %}
     </form>
+    {% if result %}
     <p>Дискриминант: {{ d }}</p>
     <p>{{ result }}</p>
     {% endif %}
