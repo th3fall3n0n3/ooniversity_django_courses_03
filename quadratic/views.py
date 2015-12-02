@@ -5,7 +5,7 @@ from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     context={}
-    if request.method == "GET" and request.GET.get('a') != None and request.GET.get('b') != None and request.GET.get('b') != None:
+    if request.GET:
 	form = QuadraticForm(request.GET)
 	if form.is_valid():
 	    a = form.cleaned_data['a']
@@ -21,9 +21,8 @@ def quadratic_results(request):
 		x1 = (-b + d ** (1/2.0)) / (2 * a)
 		x2 = (-b - d ** (1/2.0)) / (2 * a)
 		result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-	    context['d'] = d
-	    context['result'] = result
-	context['form'] = form
+	    context.update({ 'd' : d, 'result' : result })
     else:
-	context['form'] = QuadraticForm()
+	form = QuadraticForm()
+    context.update({ 'form' : form })
     return render(request, "quadratic/results.html",  context )
