@@ -4,9 +4,9 @@
 {% block selected_contacts %}selected{% endblock %} 
 {% block content %}
 	<div class=container>
-	    {% include "include/contact.html" with photo='images/director.png' name="Chubakka" position='Director' skype="aaarghd!" email="chubakka_soft@rebels.com" phone="-" %}
-	    {% include "include/contact.html" with photo='images/manager.png' name="Imperial Trooper" position='Manager' skype="save_our_souls" email="storm_trooper_1999244@imperium.com" phone="+1(555)-kill-rebels" %}
-	    {% include "include/contact.html" with photo='images/r2d2.jpg' name="R2D2" position='Founder' skype="r2d2_ma3a_tr3ad" email="r2d2@star-wars.com" phone="+981(1237)15-15-12-r2d2" %}
+	    {% include "include/contact_include.html" with photo='images/director.png' name="Chubakka" position='Director' skype="aaarghd!" email="chubakka_soft@rebels.com" phone="-" %}
+	    {% include "include/contact_include.html" with photo='images/manager.png' name="Imperial Trooper" position='Manager' skype="save_our_souls" email="storm_trooper_1999244@imperium.com" phone="+1(555)-kill-rebels" %}
+	    {% include "include/contact_include.html" with photo='images/r2d2.jpg' name="R2D2" position='Founder' skype="r2d2_ma3a_tr3ad" email="r2d2@star-wars.com" phone="+981(1237)15-15-12-r2d2" %}
 	</div>
 {% endblock content %}
 {% block footer %}footer{% endblock %}

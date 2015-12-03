@@ -11,8 +11,8 @@
 	    </div>	
 	    <div class=container>
 	     <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
-	     {% include "include/instructor.html" with block_title="Trainer" instructor=course.coach %}
-	     {% include "include/instructor.html" with block_title="Assistant" instructor=course.assistant %}
+	     {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
+	     {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
 	     <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
 	     <table class="stud_table glow_cyan">
 		<thead>
