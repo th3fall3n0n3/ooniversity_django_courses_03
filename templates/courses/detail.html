@@ -7,27 +7,27 @@
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
 		<h1 class="org_name">{{ course }}</h1>
-		<p class="org_name">{{ course.description|truncatechars:32 }}<p2>
+		<h3 class="org_name">{{ course.description|truncatechars:32 }}</h3>
 	    </div>	
 	    <div class=container>
-	     <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
-	     {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
-	     {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
-	     <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
-	     <table class="stud_table glow_cyan">
-		<thead>
+	       <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
+	       {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
+	       {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
+	       <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
+	       <table class="stud_table glow_cyan">
+		  <thead>
 		    <tr>
 		    <th>#</th><th>Topic</th><th>Description</th>
 		    </tr>
-		</thead>
-		<tbody>
-		{% for lesson in lessons%}
-		<tr>
-		<td>{{ lesson.order }}</td><td>{{ lesson }}</a></td><td>{{ lesson.description }}</td>
-		<tr>
-		{% endfor %}
-		</tbody>
-	     </table>
-	</div>
+		  </thead>
+		  <tbody>
+		  {% for lesson in lessons%}
+		  <tr>
+		   <td>{{ lesson.order }}</td><td>{{ lesson }}</a></td><td>{{ lesson.description }}</td>
+		  </tr>
+		  {% endfor %}
+		  </tbody>
+	       </table>
+	    </div>
 {% endblock content %}
 {% block footer %}footer{% endblock %}
