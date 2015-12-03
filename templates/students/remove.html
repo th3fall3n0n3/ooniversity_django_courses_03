@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+
 {% block title %}{{ student.name }} {{ student.surname }} Remove Form{% endblock %}
-{% block selected_students %}selected{% endblock %} 
+
+{% block selected_students %}selected{% endblock %}
+
 {% block content %}
         <div class="container">
 	<br>
@@ -22,4 +24,5 @@
 	</center>
     	</div>
 {% endblock content %}
+
 {% block footer %}"footer atbottom"{% endblock %}

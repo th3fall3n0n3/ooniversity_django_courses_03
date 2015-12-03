@@ -1,8 +1,13 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
+
 {% block title %}{{ course }} Description{% endblock %}
-{% block selected_main %}selected{% endblock %} 
+
+{% block selected_main %}selected{% endblock %}
+
 {% block course %}?course_id={{ course.id }}{% endblock %}
+
 {% block content %}
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
@@ -11,8 +16,11 @@
 	    </div>	
 	    <div class=container>
 	       <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
+
 	       {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
+
 	       {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
+
 	       <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
 	       <table class="stud_table glow_cyan">
 		  <thead>
@@ -30,4 +38,5 @@
 	       </table>
 	    </div>
 {% endblock content %}
+
 {% block footer %}footer{% endblock %}

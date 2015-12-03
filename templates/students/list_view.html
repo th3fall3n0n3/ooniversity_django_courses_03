@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+
 {% block title %}Pybursa Students{% endblock %}
-{% block selected_students %}selected{% endblock %} 
+
+{% block selected_students %}selected{% endblock %}
+
 {% block content %}
         <div class=container>
 	     {% if messages %}
@@ -44,5 +46,6 @@
 	     </table>
 	</div>
 {% endblock content %}
+
 {% block footer %}"footer atbottom"{% endblock %}
 

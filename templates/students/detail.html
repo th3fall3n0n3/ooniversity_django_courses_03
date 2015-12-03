@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
+
 {% block title %}{{ student.name }} {{ student.surname }} Details{% endblock %}
-{% block selected_students %}selected{% endblock %} 
+
+{% block selected_students %}selected{% endblock %}
+
 {% block content %}
         <div class=container>
 	    <div class=c_photo>
@@ -38,4 +42,5 @@
 	    </div>
 	</div>
 {% endblock content %}
+
 {% block footer %}"footer atbottom"{% endblock %}

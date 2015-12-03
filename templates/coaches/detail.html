@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
+
 {% block title %}{{ coach.user.first_name }} {{ coach.user.last_name }} Details{% endblock %}
-{% block selected_main %}selected{% endblock %} 
+
+{% block selected_main %}selected{% endblock %}
+
 {% block content %}
         <div class=container>
 	    <div class=c_photo>
@@ -41,4 +45,5 @@
 	    </div>
 	</div>
 {% endblock content %}
+
 {% block footer %}"footer atbottom"{% endblock %}
