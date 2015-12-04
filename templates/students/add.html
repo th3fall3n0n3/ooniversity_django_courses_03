@@ -9,7 +9,7 @@
 {% block content %}
         <div class="container at_center">
 	<h1 class="glow_cyan_t">Enrolling a new Jedi</h1>
-		<form method="POST">
+		<form method="post">
 			{% csrf_token %}
 			<table>
 			{{ form.as_table }}
