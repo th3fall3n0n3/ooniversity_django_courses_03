@@ -25,8 +25,6 @@ def create(request):
 		student = form.save()
 		messages.success(request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
 		return redirect('students:list_view')
-	    else:
-		messages.warning(request, 'Warning, wrong data in the form.')
 	else:
 	    context['form'] = StudentModelForm()
 	return render(request, 'students/add.html', context )
@@ -40,8 +38,6 @@ def edit(request, student_id):
 	    if form.is_valid():
 		student = form.save()
 		messages.success(request, 'Info on the student has been sucessfully changed.')
-	    else:
-		messages.warning(request, 'Wrong data in the form, please correct.')
 	return render(request, 'students/edit.html', { 'form' : form } )
 
 def remove(request, student_id):
