@@ -13,7 +13,7 @@ def add(request):
         if form.is_valid():
             data = form.cleaned_data
             form.save()
-            messages.success(request, 'Course %s been successfully added.' % (data['name']))
+            messages.success(request, 'Course %s has been successfully added.' % (data['name']))
             return redirect('index')
     else:
         form = CourseModelForm()
