@@ -24,16 +24,14 @@ def add(request):
 
 def edit(request, course_id):
         course = Course.objects.get(id=course_id)
-        if request.method == "GET":
-            form = CourseModelForm(instance = course)
-        elif request.method == "POST":
+        if request.POST:
             form = CourseModelForm(request.POST, instance = course)
             if form.is_valid():
                 course = form.save()
                 messages.success(request, 'The changes have been saved.')
 		return redirect('courses:detail',  course.id)
-            else:
-                messages.warning(request, 'Wrong data in the form, please correct.')
+	else:
+	    form = CourseModelForm(instance = course)
         return render(request, 'courses/edit.html', { 'form' : form } )
 
 def remove(request, course_id):
@@ -45,16 +43,12 @@ def remove(request, course_id):
         return render(request, 'courses/remove.html', { 'course' : course })
 
 def add_lesson(request, course_id):
-    context = {}
-    if request.method == "POST":
-        context['form'] = form = LessonModelForm(request.POST)
+    if request.POST:
+        form = LessonModelForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            lesson = form.save()
-            messages.success(request, 'Lesson %s has been successfully added.' % (lesson.subject))
-            return redirect('courses:detail', lesson.course.id)
-        else:
-            messages.warning(request, 'Warning, wrong data in the form.')
+            form.save()
+            messages.success(request, 'Lesson %s has been successfully added.' % ( form.cleaned_data['subject']))
+            return redirect('courses:detail', form.cleaned_data['course'].id)
     else:
-        context['form'] = LessonModelForm(initial={ 'course' : course_id })
-    return render(request, 'courses/add_lesson.html', context)
+        form = LessonModelForm(initial={ 'course' : course_id })
+    return render(request, 'courses/add_lesson.html', { 'form' : form })
