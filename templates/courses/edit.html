@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
-
 {% block title %}Edit {{ course.name }} course{% endblock %}
 
 {% block selected_main %}selected{% endblock %}
@@ -12,7 +10,7 @@
 		<form method="post">
 			{% csrf_token %}
 			<table>
-			{{ form.as_table}}
+			{{ form.as_table }}
 			</table>
 			<input type="submit" value="Save changes" />
 		</form>
