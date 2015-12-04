@@ -9,31 +9,36 @@ def detail(request, request_id):
 
 def add(request):
     context = {}
-    if request.POST:
-	form = CourseModelForm(request.POST)
+    if request.method == "POST":
+	context['form'] = form = CourseModelForm(request.POST)
         if form.is_valid():
     	    data = form.cleaned_data
-            form.save()
-            messages.success(request, 'Course %s been successfully added.' % (data['name']))
+            course = form.save()
+            messages.success(request, 'Course %s been successfully added.' % (course.name))
             return redirect('index')
+        else:
+            messages.warning(request, 'Warning, wrong data in the form.')
     else:
-        form = CourseModelForm()
-    return render(request, 'courses/add.html', { 'form' : form })
+        context['form'] = CourseModelForm()
+    return render(request, 'courses/add.html', context)
 
 def edit(request, course_id):
         course = Course.objects.get(id=course_id)
-        form = CourseModelForm(instance = course)
-        if request.POST:
+        if request.method == "GET":
+            form = CourseModelForm(instance = course)
+        elif request.method == "POST":
             form = CourseModelForm(request.POST, instance = course)
             if form.is_valid():
-                form.save()
+                course = form.save()
                 messages.success(request, 'The changes have been saved.')
 		return redirect('courses:detail',  course.id)
+            else:
+                messages.warning(request, 'Wrong data in the form, please correct.')
         return render(request, 'courses/edit.html', { 'form' : form } )
 
 def remove(request, course_id):
         course = Course.objects.get(id = course_id)
-        if request.POST:
+        if request.method == "POST":
             course.delete()
             messages.success(request, "Course %s has been deleted." % (course.name))
             return redirect('index')
@@ -41,15 +46,15 @@ def remove(request, course_id):
 
 def add_lesson(request, course_id):
     context = {}
-    if request.POST:
-        form = form = LessonModelForm(request.POST)
+    if request.method == "POST":
+        context['form'] = form = LessonModelForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            form.save()
-            messages.success(request, 'Lesson %s has been successfully added.' % (data['subject']))
-            return redirect('courses:detail', data['course'].id)
+            lesson = form.save()
+            messages.success(request, 'Lesson %s has been successfully added.' % (lesson.subject))
+            return redirect('courses:detail', lesson.course.id)
         else:
             messages.warning(request, 'Warning, wrong data in the form.')
     else:
-        form = LessonModelForm(initial={ 'course' : course_id })
-    return render(request, 'courses/add_lesson.html', { 'form': form })
+        context['form'] = LessonModelForm(initial={ 'course' : course_id })
+    return render(request, 'courses/add_lesson.html', context)
