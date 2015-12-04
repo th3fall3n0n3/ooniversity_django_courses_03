@@ -19,10 +19,10 @@
 	<center>
 		<form method="POST">
 			{% csrf_token %}
-			<table class="stud_table glow_cyan form_table">
+			<table>
 			{{ form.as_table}}
 			</table>
-			<input class="glow_cyan" type="submit" value="Save" />
+			<input type="submit" value="Save" />
 		</form>
 	</center>
     	</div>
