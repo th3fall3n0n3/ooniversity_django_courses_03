@@ -8,11 +8,10 @@ def detail(request, request_id):
     return render(request, 'courses/detail.html', { 'course' : Course.objects.get(id = request_id), 'lessons' : Lesson.objects.filter(course = request_id)})
 
 def add(request):
-    context = {}
     if request.POST:
-	form = CourseModelForm(request.POST)
+        form = CourseModelForm(request.POST)
         if form.is_valid():
-    	    data = form.cleaned_data
+            data = form.cleaned_data
             form.save()
             messages.success(request, 'Course %s been successfully added.' % (data['name']))
             return redirect('index')
@@ -23,13 +22,13 @@ def add(request):
 def edit(request, course_id):
         course = Course.objects.get(id=course_id)
         if request.POST:
-            form = CourseModelForm(request.POST, instance = course)
+            form = CourseModelForm(request.POST, instance=course)
             if form.is_valid():
                 form.save()
                 messages.success(request, 'The changes have been saved.')
-		return redirect('courses:detail',  course_id)
-	else:
-	    form = CourseModelForm(instance = course)
+                return redirect('courses:detail',  course_id)
+        else:
+            form = CourseModelForm(instance=course)
         return render(request, 'courses/edit.html', { 'form' : form } )
 
 def remove(request, course_id):
