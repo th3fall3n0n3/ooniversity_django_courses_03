@@ -9,7 +9,14 @@
 {% block content %}
 	    <div class=main-header>
 		<img style="z-index:1" src={% static 'images/index.jpg'%}/>
-		{% include 'include/messages_include.html' with messages=messages %}
+		{% if messages %}
+		<div class="alert alert-success alert-dismissible glow_cyan" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    		{% for message in messages %}
+    		    {{ message }}
+    		{% endfor %}
+		</div>
+		{% endif %}
 		<h1 class="org_name">Jedi Academy</h1>
 		<a href=#>Enroll for the course</a>
 		<h1 class="org_name force">Let the <b>Force</b> be with you</h1>

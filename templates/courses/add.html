@@ -8,7 +8,6 @@
 
 {% block content %}
         <div class="container at_center">
-	{% include 'include/messages_include.html' with messages=messages %}
 	<h1 class="glow_cyan_t">Create a new course:</h1>
 		<form method="post">
 			{% csrf_token %}
