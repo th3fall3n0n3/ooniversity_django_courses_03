@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Create a new lesson{% endblock %}
+
+{% block selected_main %}selected{% endblock %}
+
+{% block content %}
+        <div class="container at_center">
+	{% include 'include/messages_include.html' with messages=messages %}
+	<h1 class="glow_cyan_t">Create a new lesson:</h1>
+		<form method="POST">
+			{% csrf_token %}
+			<table>
+			{{ form.as_table}}
+			</table>
+			<input type="submit" value="Create" />
+		</form>
+    	</div>
+{% endblock content %}
+
+{% block footer %}"footer atbottom"{% endblock %}

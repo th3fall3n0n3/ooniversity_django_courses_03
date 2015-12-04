@@ -11,6 +11,7 @@
 {% block content %}
 	    <div class=main-header>
 		<img src = {% static 'images/index.jpg'%}/>
+		{% include 'include/messages_include.html' with messages=messages %}
 		<h1 class="org_name">{{ course }}</h1>
 		<h3 class="org_name">{{ course.description|truncatechars:32 }}</h3>
 	    </div>	
@@ -18,11 +19,12 @@
 	       <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
 
 	       {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
-
+		<br/>
 	       {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
 
 	       <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
-	       <table class="stud_table glow_cyan">
+	       <p class="add_button"><a href="{% url 'courses:add-lesson' course.id %}" class="glow_cyan">Add a new lesson</a></p>
+	       <table class="stud_table glow_cyan no_margin">
 		  <thead>
 		    <tr>
 		    <th>#</th><th>Topic</th><th>Description</th>

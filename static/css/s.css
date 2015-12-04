@@ -85,6 +85,7 @@ box-shadow: inset 0 0 50px rgb(178, 172, 199);
 .main-header a { position: relative; top: -400px; background-color: rgba(0, 0, 0, 0.5);color:#eeeeee; font-weight:bold; padding: 20px 40px; width: 300px; height: 50px; border: 3px solid; border-color: white; text-decoration:none;}
 .main-header a:hover { background-color: rgba(0, 0, 0, 0.2); font-weight: bold; color:white; text-shadow: 0 0 80px red, 0 0 70px red, 0 0 60px red, 0 0 50px red, 0 0 40px red, 0 0 30px red;}
 .main-header h1 { top: -350px }
+.main-header > div { top: -637px; z-index: 2; position: relative;}
 .stud_table { margin: 20px; width:100% !important}
 .stud_table tr:hover { background-color: #DDD;}
 .no_hover tr:hover { background-color: #CCC !important}
@@ -124,13 +125,3 @@ body, html{
 .add_button a:hover { background-color: rgba(153, 204, 255, 0.93) !important; color: white }
 .add_button { margin: 20px 0 !important; text-align: right;}
 .table_center { text-align: center }
-.container form > table th { background-color: #9CF; border: solid 1px white; height: 32px; color: black; text-align: center }
-.container form > table tr { background-color: #CCC;}
-.container form > table td { border: solid 1px white; padding: 4px }
-.container form > table { width: 40% !important; box-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan; }
-.container form > table input { width: 100% }
-.container form > table select { width: 100% }
-.container form > input { margin: 20px ; box-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan;}
-.at_center { text-align: center }
-.at_center table { margin: 0 auto }
-.main-header > div { top: -637px; z-index: 2; position: relative;}

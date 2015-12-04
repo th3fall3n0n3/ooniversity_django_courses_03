@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.name }} Remove Form{% endblock %}
+
+{% block selected_main %}selected{% endblock %}
+
+{% block content %}
+        <div class="container at_center">
+	<h1 class="glow_cyan_t">Are you sure to remove {{ course.name }}?</h1>
+		<form method="post">
+			{% csrf_token %}
+			<input type="submit" value="Confirm" />
+		</form>
+    	</div>
+{% endblock content %}
+
+{% block footer %}"footer atbottom"{% endblock %}

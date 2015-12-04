@@ -17,7 +17,7 @@
 	{% endif %}
 	<center><h1 class="glow_cyan_t">Are you sure to remove {{ student.name }} {{ student.surname }}?</h1></center>
 	<center>
-		<form method="POST">
+		<form method="post">
 			{% csrf_token %}
 			<input type="submit" value="Confirm" />
 		</form>
