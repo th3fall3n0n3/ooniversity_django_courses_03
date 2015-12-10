@@ -13,7 +13,7 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="{{ request.session.lang }}">
 	<!-- Navigation -->
 	<nav class="nav_bar navigation">
 	    <div class=container>
@@ -23,6 +23,7 @@
 		    <li class={% block selected_main %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
 		    <li class={% block selected_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
 		    <li class={% block selected_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block course %}{% endblock%}">Students</a></li>
+		    <li><a href="{% url 'language' %}">Change language</a></li>
 		    </ul>
 		    </div>
 		</div>
@@ -30,7 +31,7 @@
 	</nav>
 {% block content %}{% endblock content %}
     	<div class={% block footer %}{% endblock footer %}>
-            <h4 class=glow_cyan_t>© 2315 Jedi Academy Inc. All rights reserved by The Force.</h4>
+            <h4 class=glow_cyan_t>{{ request.session.lang }}© 2315 Jedi Academy Inc. All rights reserved by The Force.</h4>
         </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

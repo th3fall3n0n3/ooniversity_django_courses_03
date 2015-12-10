@@ -88,8 +88,8 @@ box-shadow: inset 0 0 50px rgb(178, 172, 199);
 .stud_table { margin: 20px; width:100% !important}
 .stud_table tr:hover { background-color: #DDD;}
 .no_hover tr:hover { background-color: #CCC !important}
-.stud_table th { background-color: #9CF; border: solid 1px white; height: 32px; color: black; text-align: center;}
-.stud_table tr { background-color: #CCC;}
+.stud_table th { background-color: rgba(153, 204, 255, 0.85); border: solid 1px white; height: 32px; color: black; text-align: center;}
+.stud_table tr { background-color: rgba(204, 204, 204, 0.85);}
 .stud_table td { border: solid 1px white; padding: 4px }
 .no_margin { margin: 0px !important }
 .score_table {height: 460px ;display: flex; justify-content: center; align-items: center;}
@@ -134,3 +134,10 @@ body, html{
 .at_center { text-align: center }
 .at_center table { margin: 0 auto }
 .main-header > div { top: -637px; z-index: 2; position: relative;}
+@font-face {
+    font-family: aurabesh;
+    src: url(/static/fonts/aurabesh.ttf);
+}
+.aurabesh {
+    font-family: aurabesh;
+}

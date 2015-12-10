@@ -2,13 +2,13 @@
 
 {% load staticfiles %}
 
-{% block title %}Enroll a new Jedi{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block selected_students %}selected{% endblock %}
 
 {% block content %}
         <div class="container at_center">
-	<h1 class="glow_cyan_t">Enrolling a new Jedi</h1>
+	<h1 class="glow_cyan_t">{{ title }}</h1>
 		<form method="post">
 			{% csrf_token %}
 			<table>
