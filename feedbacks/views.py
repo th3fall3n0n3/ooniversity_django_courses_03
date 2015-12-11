@@ -20,5 +20,5 @@ class FeedbackView(CreateView):
 	data = form.cleaned_data
 	mail_admins(data['subject'], data['message'], fail_silently=True)
 	messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
-	self.success_url = reverse_lazy('feedbacks:feedback')
+	self.success_url = reverse_lazy('feedback')
 	return super(FeedbackView, self).form_valid(form)
