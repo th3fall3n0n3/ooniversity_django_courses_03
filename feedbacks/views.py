@@ -4,10 +4,12 @@ from django.views.generic.edit import CreateView
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import mail_admins
 from feedbacks.models import Feedback
+from feedbacks.forms import FeedbackForm
 
 # Create your views here.
 class FeedbackView(CreateView):
     model = Feedback
+    form_class = FeedbackForm
     exclude = ['create_date']
     template_name = 'feedback.html'
 
