@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
+from feedbacks.views import FeedbackView
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,7 +16,7 @@ urlpatterns = patterns('',
     url(r'students/', include('students.urls', namespace = "students")),
     url(r'courses/', include('courses.urls', namespace = "courses")),
     url(r'coaches/', include('coaches.urls', namespace = "coaches")),
-    url(r'feedback/', include('feedbacks.urls', namespace = "feedbacks"))
+    url(r'feedback/', FeedbackView.as_view(), name = "feedback")
 )
 
 admin.site.site_header = 'My Site'
