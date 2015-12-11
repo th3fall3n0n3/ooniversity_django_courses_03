@@ -14,6 +14,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
 	course_id = self.request.GET.get('course_id', None)

@@ -130,9 +130,11 @@ body, html{
 .container form > table { width: 40% !important; box-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan; }
 .container form > table input { width: 100% }
 .container form > table select { width: 100% }
+.container form > table textarea { width: 100% }
 .container form > input { margin: 20px ; box-shadow: 0 0 40px cyan, 0 0 35px cyan, 0 0 30px cyan, 0 0 25px cyan, 0 0 20px cyan, 0 0 15px cyan;}
 .at_center { text-align: center }
 .at_center table { margin: 0 auto }
+.at_right { text-align: right }
 .main-header > div { top: -637px; z-index: 2; position: relative;}
 @font-face {
     font-family: aurabesh;
@@ -141,3 +143,13 @@ body, html{
 .aurabesh {
     font-family: aurabesh;
 }
+.pagina a {
+background-color: #9CF !important;
+border: solid 1px white !important;
+border-radius: 0 !important;
+color: black !important;
+text-align: center !important;
+text-decoration: none !important;
+}
+.pagina ul { margin: 0 !important;}
+.pagina {display: inline-flex;}

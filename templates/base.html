@@ -23,6 +23,7 @@
 		    <li class={% block selected_main %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
 		    <li class={% block selected_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
 		    <li class={% block selected_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block course %}{% endblock%}">Students</a></li>
+		    <li class={% block selected_feedback %}{% endblock %}><a href="{% url 'feedbacks:feedback' %}">Feedback</a></li>
 		    <li><a href="{% url 'language' %}">Change language</a></li>
 		    </ul>
 		    </div>
