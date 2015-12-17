@@ -24,11 +24,13 @@
 	    </div>	
 	    <div class=container>
 	       <h1 class="glow_cyan_t">{{ course }} Trainers</h1>
-
+           {% if course.coach %}
 	       {% include "include/instructor_include.html" with block_title="Trainer" instructor=course.coach %}
+           {% endif %}
 		<br/>
+           {% if course.assistant %}
 	       {% include "include/instructor_include.html" with block_title="Assistant" instructor=course.assistant %}
-
+           {% endif %}
 	       <h1 class="glow_cyan_t">{{ course }}, lessons:</h1>
 	       <p class="add_button"><a href="{% url 'courses:add-lesson' course.id %}" class="glow_cyan">Add a new lesson</a></p>
 	       <table class="stud_table glow_cyan no_margin">
@@ -40,7 +42,7 @@
 		  <tbody>
 		  {% for lesson in lessons %}
 		  <tr>
-		   <td>{{ lesson.order }}</td><td>{{ lesson }}</a></td><td>{{ lesson.description }}</td>
+		   <td>{{ lesson.order }}</td><td>{{ lesson }}</td><td>{{ lesson.description }}</td>
 		  </tr>
 		  {% endfor %}
 		  </tbody>

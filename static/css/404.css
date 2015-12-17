@@ -1,0 +1,19 @@
+.not_found {
+width: 100%;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   background-color: #151515;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+.not_found_image {
+    position: absolute;
+    margin: auto;
+    left: 0; 
+    right: 0;
+    top: 0;
+    bottom: 0;  
+}

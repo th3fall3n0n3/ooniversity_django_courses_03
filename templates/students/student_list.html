@@ -18,8 +18,10 @@
 	     <h1 class="glow_cyan_t">Enrolled Students to Jedi Academy</h1>
 	     <span class="glow_red_t t_red">Below you can see a list of PyBursa students graduated in April 2015</span>
 	     <p class="add_button"><a href="{% url 'students:add' %}" class="glow_cyan">Add a new student</a></p>
+         {% if object_list %}
 	     <table class="stud_table no_margin glow_cyan">
-		<thead>
+       		
+        <thead>
 		    <tr>
 	    		<th>#</th>
 			<th>Fullname</th>
@@ -62,6 +64,9 @@
 		    </li>
 	        {% endif %}
 		</ul>
+        {% else %}
+        <h3 class="glow_cyan_t">Unfortunately there is no students in this course or course not found</h3>
+        {% endif %}
 		</div>
 		</div>
     </span>

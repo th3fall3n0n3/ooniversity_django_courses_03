@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy, reverse
@@ -7,6 +8,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 class CourseDetailView(DetailView):
     model = Course
@@ -15,6 +18,10 @@ class CourseDetailView(DetailView):
     context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
+	logger.debug('Courses detail view has been debugged')
+	logger.info('Logger of courses detail view informs you!')
+	logger.warning('Logger of courses detail view warns you!')
+	logger.error('Courses detail view went wrong!')
 	context = super(CourseDetailView, self).get_context_data(**kwargs)
 	context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
 	return context
@@ -65,7 +72,7 @@ class CourseDeleteView(DeleteView):
 	return context
 
     def delete(self, request, *args, **kwargs):
-	course= self.get_object()
+	course = self.get_object()
 	messages.success(self.request, 'Course %s has been deleted.' % (course.name))
 	return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
