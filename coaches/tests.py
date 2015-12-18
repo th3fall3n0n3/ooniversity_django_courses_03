@@ -29,23 +29,66 @@ def create_coaches():
 
 class CoachDetailsTest(TestCase):
     
-    def test_coach_details(self):
+    def test_coach_details_no_data(self):
         client = Client() 
         response = client.get('/coaches/1/')
         self.assertEqual(response.status_code, 404)
-        items = create_coaches()
 
+    def test_coach_details_normal_response(self):
+        client = Client() 
+        items = create_coaches()
+        response = client.get('/coaches/1/')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_coach_details_title(self):
+        client = Client() 
+        items = create_coaches()        
         for i in items:
             response = client.get('/coaches/%d/' % items[i].id)
-            self.assertEqual(response.status_code, 200)
-            process_cases(self, response, {
-                'title' : '<title>%s %s Details</title>' % (items[i].user.first_name,
-                                                            items[i].user.last_name),
-                'header' : '<h1 class="glow_cyan_t">%s %s</h1>' % (items[i].user.first_name,
-                                                                   items[i].user.last_name),
-                'surname' : '<td>Surname</td><td>%s</td>' % items[i].user.last_name,
-                'name' : '<td>Name</td><td>%s</td>' % items[i].user.first_name,
-                'email': '<td>E-mail</td><td>%s</td>' % items[i].user.email,
-                'phone' : '<td>Phone</td><td>%s</td>' % items[i].phone,
-                'address': '<td>Address</td><td>%s</td>' % items[i].address})
+            self.assertContains(response, '<title>%s %s Details</title>' % (
+                                                    items[i].user.first_name,
+                                                    items[i].user.last_name))
+    def test_coach_details_header(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<h1 class="glow_cyan_t">%s %s</h1>' % (
+                                                    items[i].user.first_name,
+                                                    items[i].user.last_name))
+
+    def test_coach_details_surname(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<td>Surname</td><td>%s</td>' % items[i].user.last_name)
+
+    def test_coach_details_name(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<td>Name</td><td>%s</td>' % items[i].user.first_name)
+
+    def test_coach_details_email(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<td>E-mail</td><td>%s</td>' % items[i].user.email)
+
+    def test_coach_details_phone(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<td>Phone</td><td>%s</td>' % items[i].phone)
+
+    def test_coach_details_address(self):
+        client = Client() 
+        items = create_coaches()        
+        for i in items:
+            response = client.get('/coaches/%d/' % items[i].id)
+            self.assertContains(response, '<td>Address</td><td>%s</td>' % items[i].address)
             
