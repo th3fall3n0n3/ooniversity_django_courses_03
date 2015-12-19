@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from courses.models import Course, Lesson
 from students.models import Student
+from django.template import RequestContext
+
 # Create your views here.
 
 def index(request):
@@ -19,14 +21,16 @@ def language(request):
 	request.session['lang'] = 'aurabesh'
     return redirect(request.META['HTTP_REFERER'])
     
-def handler404(request):
-    response = render_to_response('404.html', {},
+
+def not_found(request):
+    response = render_to_response('errors/404.html', { 'message' : 'Sorry, page is not found' },
                                   context_instance=RequestContext(request))
     response.status_code = 404
     return response
 
-def handler500(request):
-    response = render_to_response('500.html', {},
+
+def server_error(request):
+    response = render_to_response('errors/500.html', { 'message' : 'Sorry, internal server error occurred' },
                                   context_instance=RequestContext(request))
     response.status_code = 500
     return response
