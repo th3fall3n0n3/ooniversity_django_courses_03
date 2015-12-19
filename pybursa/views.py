@@ -30,7 +30,7 @@ def not_found(request):
 
 
 def server_error(request):
-    response = render_to_response('errors/500.html', { 'message' : 'Sorry, intenral server error occurred' },
+    response = render_to_response('errors/500.html', { 'message' : 'Sorry, internal server error occurred' },
                                   context_instance=RequestContext(request))
     response.status_code = 500
     return response
